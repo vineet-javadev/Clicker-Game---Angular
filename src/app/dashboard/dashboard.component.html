@@ -1,0 +1,42 @@
+<div class="flex flex-col gap-3 justify-between">
+
+
+    <div class="flex flex-col gap-3 py-10 justify-center items-center">
+        <!-- for profile picture -->
+        <div class="w-28 h-28 bg-amber-500 rounded-full">
+            <img src="profilepic.jpg" alt="Profile Pic"
+                class="rounded-full border-4 drop-shadow-2xl shadow-black border-black">
+        </div>
+        <!-- for user's name -->
+        <div class="text-center text-lg font-semibold">
+            <p>{{localUser().name}}</p>
+        </div>
+        <!-- score section -->
+        <div class=" flex flex-col gap-3 mt-4 px-10 py-5 w-[85%] bg-sky-200 rounded-xl">
+            <p class="text-center text-xl border-b-2 ">HIGHEST SCORE</p>
+            <section>
+                <p>Easy : {{localUser().easyscore}}</p>
+                <p>Medium : {{localUser().mediumscore}}</p>
+                <p>Hard : {{localUser().hardscore}}</p>
+            </section>
+            <section class="mt-12 text-center">
+                <button type="button"
+                    class=" px-5 py-1 bg-red-400 rounded-3xl cursor-pointer border-2 border-red-400 hover:border-red-500" (click)="resetHandle()">Hard
+                    Reset</button>
+            </section>
+        </div>
+    </div>
+
+    <div class="w-full h-20 flex justify-center items-end">
+        <button type="button" class="px-5 py-1 bg-red-400 rounded font-mono flex gap-2 cursor-pointer" (click)="changeUser()"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" color="#000000"
+                fill="none">
+                <path
+                    d="M16.9767 19.5C19.4017 17.8876 21 15.1305 21 12C21 7.02944 16.9706 3 12 3C11.3126 3 10.6432 3.07706 10 3.22302M16.9767 19.5V16M16.9767 19.5H20.5M7 4.51555C4.58803 6.13007 3 8.87958 3 12C3 16.9706 7.02944 21 12 21C12.6874 21 13.3568 20.9229 14 20.777M7 4.51555V8M7 4.51555H3.5"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Change User
+        </button>
+    </div>
+</div>

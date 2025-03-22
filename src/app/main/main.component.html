@@ -1,0 +1,19 @@
+<section class="w-full relative h-full flex flex-col gap-15 justify-center items-center">
+    <div class="w-[200px] h-[70px] absolute right-5 top-5 text-center">
+        <select name="level" id="level" class="border-2 rounded-md px-2 py-1 bg-sky-200" (change)="changeLevel($event)">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+    <h1 class="text-7xl font-semibold">{{counter()}}</h1>
+    <div class="flex flex-col gap-4 justify-center items-center">
+        <div><img class="w-[45px] hover:w-[48px] cursor-pointer"
+                src="https://cdn.hugeicons.com/icons/arrow-up-01-solid-sharp.svg" alt="UP" (click)="counter.set(counter()+1)" ></div>
+        <div><img class="w-[45px] hover:w-[48px] cursor-pointer"
+                src="https://cdn.hugeicons.com/icons/thumbs-up-solid-sharp.svg" alt="SUBMIT" (click)="onSubmit()" ></div>
+        <div><img class="w-[45px] hover:w-[48px] cursor-pointer"
+                src="https://cdn.hugeicons.com/icons/arrow-down-01-solid-sharp.svg" alt="DOWN" (click)="counter.set(counter()-1)" ></div>
+    </div>
+
+</section>
