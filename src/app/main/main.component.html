@@ -9,11 +9,37 @@
     <h1 class="text-7xl font-semibold">{{counter()}}</h1>
     <div class="flex flex-col gap-4 justify-center items-center">
         <div><img class="w-[45px] hover:w-[48px] cursor-pointer"
-                src="https://cdn.hugeicons.com/icons/arrow-up-01-solid-sharp.svg" alt="UP" (click)="counter.set(counter()+1)" ></div>
+                src="https://cdn.hugeicons.com/icons/arrow-up-01-solid-sharp.svg" alt="UP"
+                (click)="counter.set(counter()+1)"></div>
         <div><img class="w-[45px] hover:w-[48px] cursor-pointer"
-                src="https://cdn.hugeicons.com/icons/thumbs-up-solid-sharp.svg" alt="SUBMIT" (click)="onSubmit()" ></div>
+                src="https://cdn.hugeicons.com/icons/thumbs-up-solid-sharp.svg" alt="SUBMIT" (click)="onSubmit()"></div>
         <div><img class="w-[45px] hover:w-[48px] cursor-pointer"
-                src="https://cdn.hugeicons.com/icons/arrow-down-01-solid-sharp.svg" alt="DOWN" (click)="counter.set(counter()-1)" ></div>
+                src="https://cdn.hugeicons.com/icons/arrow-down-01-solid-sharp.svg" alt="DOWN"
+                (click)="counter.set(counter()-1)"></div>
     </div>
 
 </section>
+
+<div
+    [class]="'fixed bottom-0 left-0 p-10 w-screen h-screen bg-gray-800 text-white flex items-center justify-center ' + (level !== 'hard' && isGameOver ? 'hidden' : '')">
+    <div class="flex flex-col items-center p-8 bg-gray-100 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold text-center mb-6 text-blue-600">Typing Game</h1>
+        <p class="text-xl font-semibold mb-4 text-gray-800">Score: <span class="text-green-500">{{ counter() }}</span>
+        </p>
+
+        <p class="text-2xl font-medium text-center mb-8 text-gray-700">Type the character: <span class="text-red-600">{{
+                randomChar }}</span></p>
+
+        <input type="text" id="hardInputField" [(ngModel)]="userInput" (input)="onChangeInputField()" (keyup.enter)="submitAnswer()"
+            [placeholder]="this.randomChar"
+            class="border text-black border-gray-300 p-2 rounded-md w-64 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            autofocus='true' />
+
+        <button (click)="submitAnswer()"
+            class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            Submit
+        </button>
+
+        <p class="mt-4 text-sm text-gray-500">Type '0' to quit the game.</p>
+    </div>
+</div>
